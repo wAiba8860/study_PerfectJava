@@ -1,0 +1,41 @@
+{
+    // IntelliSense を使用して利用可能な属性を学べます。
+    // 既存の属性の説明をホバーして表示します。
+    // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Chapter3",
+            "request": "launch",
+            "mainClass": "com.perfect.java.part2.Chapter3",
+            "projectName": "perfectjava"
+        },
+        {
+            "type": "java",
+            "name": "Launch Java Program",
+            "request": "launch",
+            "mainClass": ""
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "com.perfect.java.Main",
+            "projectName": "perfectjava"
+        },
+        {
+            "type": "java",
+            "name": "Chapter2",
+            "request": "launch",
+            "mainClass": "com.perfect.java.chap01.Chapter2",
+            "projectName": "perfectjava"
+        }
+    ]
+}
