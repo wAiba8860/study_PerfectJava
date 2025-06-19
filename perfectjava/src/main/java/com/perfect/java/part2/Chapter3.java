@@ -1,9 +1,8 @@
 package com.perfect.java.part2;
 
+import java.util.StringJoiner;
+
 public class Chapter3 {
-    public static void main(String[] args) {
-        textBlockWhiteSpace();
-    }
 
     public static void stringExample() {
         var s = "0123456789";
@@ -93,8 +92,7 @@ public class Chapter3 {
         var sn = "012\n345";
         System.out.println(sn);
 
-        var sJo = "0123" +
-                "456";
+        var sJo = "0123" + "456";
         System.out.println(sJo);
     }
 
@@ -152,5 +150,134 @@ public class Chapter3 {
                 abc\s\s\s""";
         System.out.println(s1);
         System.out.println(s1.length());
+    }
+
+    public static void stringJoin() {
+        var s1 = "012";
+        var s2 = "345";
+        System.out.println(s1.concat(s2));
+        System.out.println(s1 + s2);
+    }
+
+    public static void stringBuilderExample() {
+        var sb1 = new StringBuilder("0123456789");
+        System.out.println(sb1);
+
+        var sb2 = new StringBuilder("abcghi");
+        System.out.println(sb2.insert(3, "def"));
+
+        // StringオブジェクトからStringBuilderオブジェクトに変換
+        String s = "abc";
+        System.out.println(new StringBuilder(s));
+
+        // StringBuilderオブジェクトからStringオブジェクトに変換
+        StringBuilder sb3 = new StringBuilder("abc");
+        System.out.println(sb3.toString());
+    }
+
+    public static void stringJoinExample() {
+        var s1 = "012";
+        System.out.println(s1 += "345");
+
+        // String.join()
+        var s2 = String.join(",", "abc", "def", "ghi"); // 第一引数は区切り文字
+        System.out.println(s2);
+
+        // StringJoinerクラス
+        var s3 = new StringJoiner(",", "[", "]");
+        s3.add("abc").add("def").add("ghi");
+        System.out.println(s3);
+    }
+
+    // 非効率になるかもしれない文字列の結合処理
+    String concat(String... array) {
+        var result = "";
+        for (String s : array) {
+            result += s; // +=演算で文字列結合
+        }
+        return result;
+    }
+
+    // 上記コードを書き直した例
+    String concatCorrect(String... arr) {
+        var result = new StringBuilder();
+        for (String s : arr) {
+            result.append(s);
+        }
+        return result.toString();
+    }
+
+    public static void stringEquals() {
+        var s1 = "abc";
+        var s2 = new StringBuilder("abc").toString();
+
+        // 文字列の中身が一致していても==演算の結果はfalse（偽）
+        System.out.println(s1 == s2);
+
+        // 文字列の中身が一致していればtrue（真）
+        System.out.println(s1.equals(s2));
+        // 逆も真
+        System.out.println(s2.equals(s1));
+
+        var s3 = "abc";
+        var s4 = s3;
+        // 同一のStringオブジェクトを参照している変数同士の==演算の結果はtrue（真）
+        System.out.println(s4 == s3);
+    }
+
+    public static void stringCompare() {
+        var s1 = "abc";
+        var s2 = "abc";
+        var s3 = "a" + "b" + "c";
+
+        // 文字列リテラルに限定すると==演算で内容の一致を判定可能
+        System.out.println(s1 == s2);
+        System.out.println(s1 == s3);
+
+        var s4 = "ab";
+        s4 += "c";
+        System.out.println(s4);
+        // 文字列の中身が一致していても==演算の結果はfalse（偽）
+        System.out.println(s1 == s4);
+
+        var sb = new StringBuilder("abc");
+        // 文字列の中身が一致していてもequalsの結果はfalse（偽）
+        System.out.println(s1.equals(sb));
+
+        // contentEqualsの結果はtrue（真）
+        System.out.println(s1.contentEquals(sb));
+
+        // StringBuilder同士の比較
+        var sb2 = new StringBuilder("abc");
+        System.out.println(sb.toString().equals(sb2.toString()));
+    }
+
+    public static void stringCompareTo() {
+        System.out.println("abc".compareTo("abc"));
+        System.out.println("abc".compareTo("bcd"));
+        System.out.println("bcd".compareTo("abc"));
+        System.out.println("abc".compareTo("ABC"));
+        System.out.println("ABC".compareTo("abc"));
+        System.out.println("abc".compareTo("abcd"));
+
+        // CharSequence.compare
+        System.out.println(CharSequence.compare("abc", "abc"));
+        System.out.println(CharSequence.compare("abc", "bcd"));
+        System.out.println(CharSequence.compare("bcd", "abc"));
+    }
+
+    public static void stringToString() {
+        // StringBuilderオブジェクトに対する暗黙のtoStringメソッド呼び出し
+        System.out.println("abc" + (new StringBuilder("def")));
+
+        // 数値もString型変換される
+        System.out.println("123" + 456);
+
+        // nullは"null"という文字列に変換されます
+        System.out.println("123" + null);
+    }
+
+    public static void main(String[] args) {
+        stringToString();
     }
 }
