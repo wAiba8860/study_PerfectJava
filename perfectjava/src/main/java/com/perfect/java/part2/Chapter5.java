@@ -245,6 +245,73 @@ public class Chapter5 {
         Integer.parseInt(null);
     }
 
+
+    // ブーリアン型変数を使う冗長なコード例
+    // 文字列haystack内に文字列needleが含まれていれば真を返す
+    boolean contains1(String haystack, String needle) {
+        boolean found; // ブーリアン型変数
+        if (haystack.indexOf(needle) >= 0) {
+            found = true;
+        } else {
+            found = false;
+        }
+        return found;
+    }
+
+    boolean contains2(String haystack, String needle) {
+        if (haystack.indexOf(needle) >= 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    static boolean contains3(String haystack, String needle) {
+        return haystack.indexOf(needle) >= 0;
+    }
+
+    // containsメソッドを呼ぶ例
+    static void callContains() {
+        if (contains3("foo bar", "bar")) {
+            System.out.println("contains");
+        }
+    }
+
+    static void booleanEquals() {
+        // 偽の判定コード（パターン1）
+        if ("foo bar".indexOf("bar") < 0) {
+            System.out.println("not contains");
+        }
+
+        // 偽の判定コード（パターン2）
+        if (!("foo bar".indexOf("bar") >= 0)) {
+            System.out.println("not contains");
+        }
+        // 2つは同じ条件判定
+    }
+
+    static void deMorganLaws() {
+        // 論理演算式のある例
+        // char cを仮定
+        char c = 0;
+        if (!Character.isDigit(c) && !Character.isLetter(c)) {
+            System.out.println("any symbol?");
+        }
+
+        // ド・モルガンの法則を使って書き換え
+        if (!(Character.isDigit(c) || Character.isLetter(c))) {
+            System.out.println("any symbol?");
+        }
+
+        // 否定演算子をなくす書き換え
+        if (Character.isDigit(c) || Character.isLetter(c)) {
+            ; // through
+        } else {
+            System.out.println("any symbol");
+        }
+    }
+
+
     public static void main(String... args) {
         numberFormatExceptionExample();
     }
