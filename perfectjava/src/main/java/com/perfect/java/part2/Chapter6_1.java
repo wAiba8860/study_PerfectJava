@@ -16,7 +16,21 @@ public class Chapter6_1 {
                 .println("cart1: %s , cart2: %s".formatted(cart1.customerName, cart2.customerName));
     }
 
+    static void shoppingCartMethod() {
+        var cart1 = new ShoppingCart();
+        var cart2 = new ShoppingCart();
+
+        // var book = "Peopleware";
+
+        // メソッド呼び出し
+        cart1.addBook("PeopleWare");
+        cart2.addBook("ShowStopper!");
+
+        cart1.showBooks();
+        cart2.showBooks();
+    }
+
     public static void main(String[] args) {
-        useShoppingCartExample();
+        shoppingCartMethod();
     }
 }
