@@ -13,6 +13,7 @@ import com.perfect.java.part2.ClassFile.ShoppingCart;
 import com.perfect.java.part2.ClassFile.ThisMethodExample;
 import com.perfect.java.part2.ClassFile.TopLevelClass;
 import com.perfect.java.part2.ClassFile.VariableLengthMethod;
+import com.perfect.java.part2.ClassFile.*;
 
 public class Chapter6_1 {
 
@@ -66,8 +67,7 @@ public class Chapter6_1 {
 
     static void mathExample() {
         final class Math { // finalクラスにして無用な継承を禁止する
-            private Math() {
-            } // コンストラクタをprivateにして、オブジェクト生成を禁止する
+            private Math() {} // コンストラクタをprivateにして、オブジェクト生成を禁止する
 
             public static final double E = 2.7182818284590452354; // すべてのメソッドとフィールドにstatic修飾子をつけてクラスフィールド、クラスメソッドにする
         }
@@ -111,7 +111,7 @@ public class Chapter6_1 {
         var my = new VariableLengthMethod();
         my.method(); // 実引数なしの呼び出しも可能
         my.method("abc", "def"); // 実引数の数は任意
-        my.method(new String[] { "abc", "def" }); // 実引数に配列を渡せる
+        my.method(new String[] {"abc", "def"}); // 実引数に配列を渡せる
     }
 
     static void callArrayMethod() {
@@ -119,7 +119,7 @@ public class Chapter6_1 {
         var my = new VariableLengthMethod();
         // 上記メソッドの実引数なしの呼び出しは、空配列と等価
         my.methodArray(new String[] {});
-        my.methodArray(new String[] { "abc", "def" });
+        my.methodArray(new String[] {"abc", "def"});
 
         // 下記はコンパイルエラー
         // The method methodArray(String[]) in the type VariableLengthMethod is not
@@ -192,9 +192,10 @@ public class Chapter6_1 {
     }
 
     public static void main(String[] args) {
-        ClassFieldInstanceFiledDifference();
+        // useRecodeBasic(new RecordBook("abc", "efb", 111));
     }
 }
+
 
 class ClassStaticField {
     static String SC = "ABC";
