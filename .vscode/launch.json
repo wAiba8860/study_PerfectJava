@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "BreakingImmutable",
+            "request": "launch",
+            "mainClass": "com.perfect.java.part2.ClassFile.BreakingImmutable",
+            "projectName": "perfectjava"
+        },
+        {
+            "type": "java",
+            "name": "Other",
+            "request": "launch",
+            "mainClass": "com.perfect.java.part2.ClassFile.Other",
+            "projectName": "perfectjava"
+        },
+        {
+            "type": "java",
+            "name": "StaticFieldExample",
+            "request": "launch",
+            "mainClass": "com.perfect.java.part2.ClassFile.StaticFieldExample",
+            "projectName": "perfectjava"
+        },
+        {
+            "type": "java",
             "name": "Chapter6_1",
             "request": "launch",
             "mainClass": "com.perfect.java.part2.Chapter6_1",
