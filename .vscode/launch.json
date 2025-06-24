@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "GenderDatabase",
+            "request": "launch",
+            "mainClass": "com.perfect.java.part2.ClassFile.GenderDatabase",
+            "projectName": "perfectjava"
+        },
+        {
+            "type": "java",
+            "name": "Chapter7_2",
+            "request": "launch",
+            "mainClass": "com.perfect.java.part2.Chapter7_2",
+            "projectName": "perfectjava"
+        },
+        {
+            "type": "java",
+            "name": "Chapter7_1",
+            "request": "launch",
+            "mainClass": "com.perfect.java.part2.Chapter7_1",
+            "projectName": "perfectjava"
+        },
+        {
+            "type": "java",
             "name": "BreakingImmutable",
             "request": "launch",
             "mainClass": "com.perfect.java.part2.ClassFile.BreakingImmutable",
