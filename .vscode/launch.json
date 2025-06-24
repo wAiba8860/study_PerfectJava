@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "StateTransitionClass",
+            "request": "launch",
+            "mainClass": "com.perfect.java.part2.ClassFile.StateTransitionClass",
+            "projectName": "perfectjava"
+        },
+        {
+            "type": "java",
             "name": "GenderDatabase",
             "request": "launch",
             "mainClass": "com.perfect.java.part2.ClassFile.GenderDatabase",

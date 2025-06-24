@@ -2,10 +2,16 @@ package com.perfect.java.part2;
 
 import com.perfect.java.part2.ClassFile.GenderIndividualImplementation;
 
-//enum型宣言
+// enum型宣言
 enum Gender {
     MAN, WOMEN, OTHER,
 }
+
+
+enum DayOfWeek {
+    SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY,
+}
+
 
 public class Chapter7_2 {
     // クラス内の定数（クラス内でのみ使用）の例
@@ -80,6 +86,41 @@ public class Chapter7_2 {
     static void enumGenderBasic() {
         var man = GenderIndividualImplementation.MAN;
         man.method();
+    }
+
+    // switch文（case null記述とdefault非記述で網羅性を担保）
+    static void DayOfMethod(DayOfWeek dow) {
+        switch (dow) {
+            case SUNDAY, SATURDAY -> {
+                System.out.println("day off");
+            }
+            case MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY -> {
+                System.out.println("workday");
+            }
+            case null -> {
+                System.out.println("null");
+            }
+        }
+    }
+
+    // （対照）等価なif-else文
+    static void DayOfIfElse(DayOfWeek dow) {
+        if (dow == DayOfWeek.SUNDAY || dow == DayOfWeek.SATURDAY) {
+            System.out.println("day off");
+        } else if (dow == DayOfWeek.MONDAY || dow == DayOfWeek.TUESDAY || dow == DayOfWeek.WEDNESDAY
+                || dow == DayOfWeek.THURSDAY || dow == DayOfWeek.FRIDAY) {
+            System.out.println("workday");
+        } else {
+            assert (false); // not reached
+        }
+    }
+
+    // switch式（case nullなしでも網羅性担保。case nullを記述しても良い）
+    static void DayOfSwitch(DayOfWeek dow) {
+        System.out.println(switch (dow) {
+            case SUNDAY, SATURDAY -> "day off";
+            case MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY -> "workday";
+        });
     }
 
     public static void main(String[] args) {
