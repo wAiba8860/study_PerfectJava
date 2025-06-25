@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "EnumMain",
+            "request": "launch",
+            "mainClass": "com.perfect.java.part2.EnumMain",
+            "projectName": "perfectjava"
+        },
+        {
+            "type": "java",
+            "name": "Chapter8_1",
+            "request": "launch",
+            "mainClass": "com.perfect.java.part2.Chapter8_1",
+            "projectName": "perfectjava"
+        },
+        {
+            "type": "java",
             "name": "StateTransitionClass",
             "request": "launch",
             "mainClass": "com.perfect.java.part2.ClassFile.StateTransitionClass",

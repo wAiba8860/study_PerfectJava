@@ -7,13 +7,11 @@ enum Gender {
     MAN, WOMEN, OTHER,
 }
 
-
-enum DayOfWeek {
+public enum DayOfWeek {
     SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY,
 }
 
-
-public class Chapter7_2 {
+class Chapter7_2 {
     // クラス内の定数（クラス内でのみ使用）の例
     private static final int DEFAULT_VALUE = 16; // 定数
 
