@@ -1,5 +1,6 @@
 package com.perfect.java.part2;
 
+import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.HashSet;
@@ -40,11 +41,13 @@ public class Chapter8_2 {
     }
 }
 
+
 // COLUMN
 // EnumSetとEnumMap
 class EnumMain {
     // DayOfWeek
-    private static final EnumSet<DayOfWeek> holidays = EnumSet.of(DayOfWeek.SUNDAY, DayOfWeek.SATURDAY);
+    private static final EnumSet<DayOfWeek> holidays =
+            EnumSet.of(DayOfWeek.SUNDAY, DayOfWeek.SATURDAY);
 
     // EnumMapを利用して各曜日が休日かどうかをマッピング
     private static final Map<DayOfWeek, Boolean> holidaysMap = new EnumMap<>(DayOfWeek.class);
@@ -59,11 +62,6 @@ class EnumMain {
         // 休日を設定
         holidaysMap.put(DayOfWeek.SUNDAY, true);
         holidaysMap.put(DayOfWeek.SATURDAY, true);
-    }
-
-    public static void main(String... args) {
-        executeByDay(DayOfWeek.FRIDAY);
-        executeByDayMap(DayOfWeek.SATURDAY);
     }
 
     static void executeByDay(DayOfWeek dow) {
@@ -87,5 +85,21 @@ class EnumMain {
         } else {
             System.out.println("workday");
         }
+    }
+
+    // 変更不可コレクションへの変更
+    static void CollectionUnmodifiable() {
+        // 変更可能コレクション
+        var list = new ArrayList<String>();
+        list.add("abc");
+        list.add("def");
+
+        // 変更不可コレクションに変更
+    }
+
+
+    public static void main(String... args) {
+        executeByDay(DayOfWeek.FRIDAY);
+        executeByDayMap(DayOfWeek.SATURDAY);
     }
 }
