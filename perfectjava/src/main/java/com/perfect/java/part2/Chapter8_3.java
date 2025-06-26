@@ -1,6 +1,9 @@
 package com.perfect.java.part2;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class Chapter8_3 {
 
@@ -61,20 +64,20 @@ public class Chapter8_3 {
     }
 
     static void arrayInitial() {
-        int[] arr = { 0, 1, 2 }; // 配列初期化子
+        int[] arr = {0, 1, 2}; // 配列初期化子
 
         // 下記はコンパイルエラー
         // Array initializer needs an explicit target-type
         // var arrE = { 0, 1, 2 };
 
         // 要素がStringオブジェクト
-        String[] arrSt = { "abc", "def" };
+        String[] arrSt = {"abc", "def"};
 
         // 要素がStringBuilderオブジェクト
-        StringBuilder[] arrSb = { new StringBuilder("abc"), new StringBuilder("def") };
+        StringBuilder[] arrSb = {new StringBuilder("abc"), new StringBuilder("def")};
 
         // 余計なカンマは無視
-        int[] arrCom = { 0, 1, 2, };
+        int[] arrCom = {0, 1, 2,};
         System.out.println(arrCom.length);
 
         // 宣言時以外の配列の生成
@@ -82,14 +85,13 @@ public class Chapter8_3 {
         // void method(int[] arr){}
 
         // 上記メソッドの引数に初期化した配列を渡す構文
-        arrayMethod(new int[] { 0, 1, 2 });
+        arrayMethod(new int[] {0, 1, 2});
     }
 
-    static void arrayMethod(int[] arr) {
-    }
+    static void arrayMethod(int[] arr) {}
 
     static void enumerationArray() {
-        int[] arr = { 10, 20, 30 };
+        int[] arr = {10, 20, 30};
 
         // 拡張for構文
         for (var value : arr) {
@@ -104,7 +106,7 @@ public class Chapter8_3 {
 
     static void arraySort() {
         // 要素が基本型の配列は昇順でソート
-        int[] arr = { 10, 2, 3, 1, 5 };
+        int[] arr = {10, 2, 3, 1, 5};
         Arrays.sort(arr);
         System.out.println(Arrays.toString(arr));
 
@@ -112,7 +114,7 @@ public class Chapter8_3 {
         // 比較処理用メソッドを渡さない場合、要素のcompareToメソッドを使います
         // 下記コードは降順のソートです
         // ボクシング変換とアンボクシング変換が起きるので効率的ではありません
-        Integer[] arrIntegers = { 10, 2, 3, 1, 5 };
+        Integer[] arrIntegers = {10, 2, 3, 1, 5};
 
         // 第2引数はラムダ式
         Arrays.sort(arrIntegers, (n1, n2) -> {
@@ -122,8 +124,8 @@ public class Chapter8_3 {
     }
 
     static void equivalenceArray() {
-        int[] arr1 = { 0, 1, 2 };
-        int[] arr2 = { 0, 1, 2 };
+        int[] arr1 = {0, 1, 2};
+        int[] arr2 = {0, 1, 2};
 
         // 等値演算で要素の同値判定はできない
         System.out.println(arr1 == arr2);
@@ -138,7 +140,91 @@ public class Chapter8_3 {
         System.out.println(Arrays.compare(arr1, arr2));
     }
 
+    static void threeDimensionalArrayExample() {
+        int[][][] arr = new int[2][][];
+        arr[0] = new int[2][];
+        arr[1] = new int[2][];
+        arr[0][0] = new int[2];
+        arr[0][1] = new int[2];
+        arr[1][0] = new int[2];
+        arr[1][1] = new int[2];
+        arr[0][0][0] = 0b000;
+        arr[0][0][1] = 0b001;
+        arr[0][1][0] = 0b010;
+        arr[0][1][1] = 0b011;
+        arr[1][0][0] = 0b100;
+        arr[1][0][1] = 0b101;
+        arr[1][1][0] = 0b110;
+        arr[1][1][1] = 0b111;
+
+        // 上記を簡易化
+        int[][][] arr2 = new int[2][2][2];
+        arr2[0][0][0] = 0b000;
+        arr2[0][0][1] = 0b001;
+        arr2[0][1][0] = 0b010;
+        arr2[0][1][1] = 0b011;
+        arr2[1][0][0] = 0b100;
+        arr2[1][0][1] = 0b101;
+        arr2[1][1][0] = 0b110;
+        arr2[1][1][1] = 0b111;
+
+        int[][][] arr3 = {{{0b000, 0b001}, {0b010, 0b011},}, {{0b000, 0b001}, {0b010, 0b011},},};
+
+        // 3次元配列のすべての要素の列挙コード
+        // 拡張for構文
+        for (int[][] first : arr) {
+            for (int[] second : first) {
+                for (int n : second) {
+                    System.out.println(n);
+                }
+            }
+        }
+
+        // インデックス使用
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                for (int k = 0; k < arr[i][j].length; k++) {
+                    System.out.println(arr[i][j][k]);
+                }
+            }
+        }
+    }
+
+    static void arraysCopyOf() {
+        int[] src = {1, 2, 3};
+        // 配列srcの要素を配列destにコピー
+        int[] dest = Arrays.copyOf(src, src.length);
+        System.out.println(Arrays.toString(dest));
+    }
+
+    static void arrayAsList() {
+        // 配列からオブジェクトに変換
+        String[] src = {"abc", "def", "ghi"};
+        List<String> dest = Arrays.asList(src);
+        System.out.println(dest);
+
+        // Listオブジェクトに対する追加と削除は実行時例外
+        dest.add("xyz");
+    }
+
+    static void arrayToListShallow() {
+        String[] src = {"abc", "def", "ghi"};
+        List<String> dest = new ArrayList<>();
+        Collections.addAll(dest, src);
+        System.out.println(dest);
+    }
+
+    static void listToArray() {
+        List<String> src = List.of("abc", "def", "ghi");
+        String[] dest = src.toArray(String[]::new); // String[]::newはメソッド参照
+        System.out.println(Arrays.toString(dest));
+
+        // 少し古い書き方
+        String[] dest2 = src.toArray(new String[src.size()]);
+    }
+
+
     public static void main(String[] args) {
-        equivalenceArray();
+        listToArray();
     }
 }
