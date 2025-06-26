@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Chapter8_3",
+            "request": "launch",
+            "mainClass": "com.perfect.java.part2.Chapter8_3",
+            "projectName": "perfectjava"
+        },
+        {
+            "type": "java",
+            "name": "Chapter8_2",
+            "request": "launch",
+            "mainClass": "com.perfect.java.part2.Chapter8_2",
+            "projectName": "perfectjava"
+        },
+        {
+            "type": "java",
             "name": "EnumMain",
             "request": "launch",
             "mainClass": "com.perfect.java.part2.EnumMain",
