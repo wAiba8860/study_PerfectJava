@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Chapter9_1",
+            "request": "launch",
+            "mainClass": "com.perfect.java.part2.Chapter9_1",
+            "projectName": "perfectjava"
+        },
+        {
+            "type": "java",
             "name": "Chapter8_3",
             "request": "launch",
             "mainClass": "com.perfect.java.part2.Chapter8_3",
