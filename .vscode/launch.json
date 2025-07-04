@@ -6,6 +6,48 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Chapter12_1",
+            "request": "launch",
+            "mainClass": "com.perfect.java.part2.Chapter12_1",
+            "projectName": "perfectjava"
+        },
+        {
+            "type": "java",
+            "name": "StrategyPattern",
+            "request": "launch",
+            "mainClass": "com.perfect.java.part2.Chap11classInterface.StrategyPattern",
+            "projectName": "perfectjava"
+        },
+        {
+            "type": "java",
+            "name": "CustomerRankPoint",
+            "request": "launch",
+            "mainClass": "com.perfect.java.part2.Chap11classInterface.CustomerRankPoint",
+            "projectName": "perfectjava"
+        },
+        {
+            "type": "java",
+            "name": "AfterCallBackMyEcho",
+            "request": "launch",
+            "mainClass": "com.perfect.java.part2.Chap11classInterface.AfterCallBackMyEcho",
+            "projectName": "perfectjava"
+        },
+        {
+            "type": "java",
+            "name": "BeforeCallBackMyEcho",
+            "request": "launch",
+            "mainClass": "com.perfect.java.part2.Chap11classInterface.BeforeCallBackMyEcho",
+            "projectName": "perfectjava"
+        },
+        {
+            "type": "java",
+            "name": "Chapter11_1",
+            "request": "launch",
+            "mainClass": "com.perfect.java.part2.Chapter11_1",
+            "projectName": "perfectjava"
+        },
+        {
+            "type": "java",
             "name": "Chapter10_3",
             "request": "launch",
             "mainClass": "com.perfect.java.part2.Chapter10_3",
