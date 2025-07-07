@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "PrintStackViaException",
+            "request": "launch",
+            "mainClass": "com.perfect.java.part2.PrintStackViaException",
+            "projectName": "perfectjava"
+        },
+        {
+            "type": "java",
             "name": "Main",
             "request": "launch",
             "mainClass": "com.perfect.java.part2.Main",
