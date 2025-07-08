@@ -85,7 +85,64 @@ public class Chapter13_3 {
         }
     }
 
+    void loopJump() {
+        boolean condition = true;
+        // break文でwhile文を抜けるコード
+        while (true) {
+            if (condition) {
+                break;
+            }
+        }
+
+        // breakでfor文を抜けるコード
+        for (int i = 0; i < 10; i++) {
+            // 省略
+            if (condition) {
+                break;
+            }
+        }
+    }
+
+    static void evenContinue() {
+        for (int i = 0; i < 10; i++) {
+            if (i % 2 != 0) {
+                continue;
+            }
+            System.out.println(i);
+        }
+    }
+
+    void labelJump() {
+        var condition = false;
+        while (condition) {
+            if (condition) {
+                break;
+            }
+        }
+        // break文で抜けた後に実行されるコード
+
+        // フラグを使って入れ子のループを同時に抜けるコード（非推奨）
+        var flagLoop = true;
+        while (flagLoop) {
+            while (flagLoop) {
+                if (flagLoop) {
+                    flagLoop = false;
+                    break;
+                }
+            }
+        }
+
+        // ラベルとbreakで入れ子のループを同時に抜けるコード
+        outer_loop: while (true) {
+            while (true) {
+                if (flagLoop) {
+                    break outer_loop;
+                }
+            }
+        }
+    }
+
     public static void main(String... args) {
-        streamLoopLikeFor();
+        evenContinue();
     }
 }
