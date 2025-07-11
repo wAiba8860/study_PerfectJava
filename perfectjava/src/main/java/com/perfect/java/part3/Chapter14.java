@@ -210,11 +210,30 @@ public class Chapter14 {
         System.out.println(cause);
     }
 
+    // 抑制例外の例
+    static void suppressedException() {
+        try (var myRes = new MyResource();) {
+            throw new Exception("main exception"); // 主例外
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+        }
+    }
+
+    // フレームワーク側のコード
+    void frameworkExceptionBasic() {
+        try {
+            // アプリケーションコードを呼び出す
+        } catch (FrameworkException e) {
+            // TODO: handle exception
+            // アプリケーションコード内でおきた異常を一括して処理
+        }
+    }
+
     public static void main(String[] args) {
-        getCauseBasic();
+        suppressedException();
     }
 }
-
 
 // コンパイルエラーの安易な回避策
 class ExceptionExample1 {
@@ -232,7 +251,6 @@ class ExceptionExample1 {
     }
 }
 
-
 // 間違った例外の抑制方法
 class ExceptionExample2 {
     public static void main(String[] args) {
@@ -248,7 +266,6 @@ class ExceptionExample2 {
     }
 }
 
-
 // AutoCloseableインターフェースを継承するリソースクラス
 class MyResource implements AutoCloseable {
     MyResource() {
@@ -258,11 +275,13 @@ class MyResource implements AutoCloseable {
     // 他のメソッドは省略
 
     @Override
-    public void close() {
+    public void close() throws IOException {
         // リソース開放処理（クローズ処理）
+        // closeメソッド内で発生する例外の模倣
+        // try-with-resources文を使うと抑制例外として扱われる
+        throw new IOException("close exception");
     }
 }
-
 
 class MyException extends Exception {
 
@@ -293,37 +312,32 @@ class MyException extends Exception {
     // }
 }
 
-
 // 階層化された例外クラス
 class ParentException extends Exception { // 継承元例外
 
 }
 
-
 class ChildException extends ParentException { // 継承元例外の派生型
 
 }
-
 
 class OtherException extends Exception { // 無関係な検査例外
 
 }
 
-
 class OtherRuntimeException extends RuntimeException { // 無関係な実行時例外
 
 }
-
 
 // 継承元インターフェース
 interface MyInterface {
     void method() throws ParentException;
 }
 
-
 // methodをオーバーライドする実装クラス
 class My implements MyInterface {
-    public void method() throws ParentException {} // 継承元例外はOK
+    public void method() throws ParentException {
+    } // 継承元例外はOK
 
     // public void method() throws ChildException { // 継承元例外の派生型はOK
     // }
@@ -345,12 +359,10 @@ class My implements MyInterface {
     // }
 }
 
-
 @FunctionalInterface
 interface MyConsumer<T> {
     void accept(T t) throws InterruptedException;
 }
-
 
 class ThrowsNotThrows {
     // throws節のあるメソッド
@@ -371,10 +383,16 @@ class ThrowsNotThrows {
     }
 }
 
-
 // アプリケーション例外の定義
 class AppException extends Exception {
     public AppException(Throwable cause) {
         super(cause); // 原因例外をセットするため、この行が必須
+    }
+}
+
+// 大きなくくりで異常を補足するフレームワーク例外
+class FrameworkException extends RuntimeException {
+    public FrameworkException(Throwable cause) {
+        super(cause);
     }
 }
