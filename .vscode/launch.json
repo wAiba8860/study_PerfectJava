@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TemplateBasic",
+            "request": "launch",
+            "mainClass": "com.perfect.java.part3.Chapter17Class.TemplateBasic",
+            "projectName": "perfectjava"
+        },
+        {
+            "type": "java",
+            "name": "Example",
+            "request": "launch",
+            "mainClass": "com.perfect.java.part3.Chapter17Class.Example",
+            "projectName": "perfectjava"
+        },
+        {
+            "type": "java",
+            "name": "My",
+            "request": "launch",
+            "mainClass": "com.perfect.java.part3.Chapter17Class.My",
+            "projectName": "perfectjava"
+        },
+        {
+            "type": "java",
+            "name": "Chapter17_1",
+            "request": "launch",
+            "mainClass": "com.perfect.java.part3.Chapter17_1",
+            "projectName": "perfectjava"
+        },
+        {
+            "type": "java",
             "name": "Chapter16_2",
             "request": "launch",
             "mainClass": "com.perfect.java.part3.Chapter16_2",
