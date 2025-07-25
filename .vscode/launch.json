@@ -6,6 +6,48 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ThreadSleepVirtual",
+            "request": "launch",
+            "mainClass": "com.perfect.java.part4.ThreadSleepVirtual",
+            "projectName": "perfectjava"
+        },
+        {
+            "type": "java",
+            "name": "ThreadPoolMainCallable",
+            "request": "launch",
+            "mainClass": "com.perfect.java.part4.ThreadPoolMainCallable",
+            "projectName": "perfectjava"
+        },
+        {
+            "type": "java",
+            "name": "ThreadPoolMain",
+            "request": "launch",
+            "mainClass": "com.perfect.java.part4.ThreadPoolMain",
+            "projectName": "perfectjava"
+        },
+        {
+            "type": "java",
+            "name": "ThreadMain",
+            "request": "launch",
+            "mainClass": "com.perfect.java.part4.ThreadMain",
+            "projectName": "perfectjava"
+        },
+        {
+            "type": "java",
+            "name": "Chapter20",
+            "request": "launch",
+            "mainClass": "com.perfect.java.part4.Chapter20",
+            "projectName": "perfectjava"
+        },
+        {
+            "type": "java",
+            "name": "Chapter19",
+            "request": "launch",
+            "mainClass": "com.perfect.java.part3.Chapter19",
+            "projectName": "perfectjava"
+        },
+        {
+            "type": "java",
             "name": "TemplateBasic",
             "request": "launch",
             "mainClass": "com.perfect.java.part3.Chapter17Class.TemplateBasic",
