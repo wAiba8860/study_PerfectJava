@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Chapter22",
+            "request": "launch",
+            "mainClass": "com.perfect.java.part4.Chapter22",
+            "projectName": "perfectjava"
+        },
+        {
+            "type": "java",
+            "name": "Chapter21",
+            "request": "launch",
+            "mainClass": "com.perfect.java.part4.Chapter21",
+            "projectName": "perfectjava"
+        },
+        {
+            "type": "java",
             "name": "ThreadSleepVirtual",
             "request": "launch",
             "mainClass": "com.perfect.java.part4.ThreadSleepVirtual",
